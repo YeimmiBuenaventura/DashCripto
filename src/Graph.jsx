@@ -1,7 +1,9 @@
 import "./Graph.css"
-import {useEffect, useState, useRef} from 'react'
-import { Line } from "react-chartjs-2";
-
+//useEffect receives as parameter a function that will be executed every time our component is rendered.
+import {useEffect, useState, useRef} from 'react' 
+//Import a module from node_modules
+import { Line } from "react-chartjs-2"; 
+/*Import how ChartJS from chart.js library*/
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -13,8 +15,9 @@ import {
     Filler,
     Legend,
   } from 'chart.js';
-import moment from "moment/moment";
+import moment from "moment";
 
+/*Save register of charts*/
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -25,6 +28,8 @@ ChartJS.register(
     Filler,
     Legend
 )
+
+/*Style of the graphs*/
 export default function Graph({type = 1, coin = "bitcoin", currency = "usd", days = 30,color = "#04D99D"}){
     const chartStyle = {
         border: {
@@ -37,23 +42,28 @@ export default function Graph({type = 1, coin = "bitcoin", currency = "usd", day
             display: false
         }
     }
-    let url = `https://api.coingecko.com/api/v3/coins/${coin}/market_chart?vs_currency=${currency}&days=${days}&interval=daily`
+    //Link from Coingecko-Api, get info about coin
+    let url = `https://api.coingecko.com/api/v3/coins/${coin}/market_chart?vs_currency=${currency}&days=${days}&interval=daily` 
     let data , options
+    /*Statuses*/
     const [prices, setPrices] = useState()
     const [dates, setDates] = useState()
     const [gradient, setGradient] = useState()
+    //We ejecut async function, in the first const get info from url, in the second const we convert the info in json. 
     async function getData(){
         try{
             const response = await fetch(url)
             const json = await response.json()
+            //Prices Coin, Math.round returns the value of a number rounded to the nearest integer.
             setPrices(json.prices.map(item => Math.round(item[1])))
+            //We assign to the date a format
             setDates(json.prices.map(item => moment.unix(item[0]).format("MM-DD")))
         }catch(e){
             console.log("error:",e)
         }
     }
+    //With useEffect ejecut a function when the page render, get data and draw the graph 
     const chartRef = useRef(null);
-    
     useEffect(_ => {
         getData()
         const canvas = chartRef.current.firstChild
@@ -64,7 +74,7 @@ export default function Graph({type = 1, coin = "bitcoin", currency = "usd", day
     },[])
     
     
-    
+    /*Implement a switch that have features for the graphs*/
     switch(type){
         case 0:
 
@@ -141,6 +151,7 @@ export default function Graph({type = 1, coin = "bitcoin", currency = "usd", day
               }
             break
     }
+    /*return info to ref*/
     return (
         <div ref={chartRef} className="graph">
             <Line data={data} options={options}/>

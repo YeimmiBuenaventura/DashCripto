@@ -2,7 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family:'Oregano', cursive;
 }
 .App{
     position: relative;
@@ -16,6 +16,21 @@ main{
     margin: auto;
     padding: 50px 0;
 }
+@media (min-width: 320px) and (max-width: 480px){
+    main{
+        display: grid;
+        grid: 1fr 1fr / 1fr;
+        place-items: center;
+        gap: 30px;
+        width: calc(87% + 30px);;
+        margin: auto;
+        padding: 50px 0;
+    }
+    .coin_image_container{
+        width: 50%;
+    }
+
+}
 .cards_con{
     width: 90%;
     height: 509px;
@@ -28,9 +43,9 @@ main{
     font-weight: bold;
 }
 .green{
-    color: green;
+    color: rgb(0, 255, 213);
 }
 
 .red{
-    color: red;
+    color: rgb(100, 9, 9);
 }

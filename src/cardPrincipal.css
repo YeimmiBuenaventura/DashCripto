@@ -1,5 +1,5 @@
 .cripto-first{
-    background: #02735E;
+    background: #1b004b;
     width: 95%;
     max-width: 500px;
     border-radius: 20px;
@@ -60,4 +60,10 @@
     padding: 10px;
     color: black;
     margin-bottom: 20px;
+}
+@media (min-width: 320px) and (max-width: 480px){
+    .cripto-title h2{
+        text-transform: uppercase;
+        font-size: 1.4rem;
+    }
 }

@@ -2,7 +2,7 @@ import { FaPlay } from "react-icons/fa";
 import './cardPrincipal.css'
 import { deleteDec, colorDec } from './App'
 import Graph from "./Graph";
-
+//We create a function that contain a json with different attributes that are info of cryptocurrencies
 function CardPrincipal({ json: { id,
     symbol,
     current_price,
@@ -17,9 +17,10 @@ function CardPrincipal({ json: { id,
 
    
     return (
-        <>
+        <>{/*Structure */}
             <article className="cripto-first">
                 <div className="cripto-title">
+                    {/* We get differents attributes from json (Function CardPrincipal) */}
                     <img src={image} alt="Icono de cripto" />
                     <h2>{symbol} - {current_price} {cur}</h2>
                     {/* <select name="select-percentage" id="select-percentage">
@@ -27,12 +28,16 @@ function CardPrincipal({ json: { id,
                         <option value="value2">18%</option>
                         <option value="value3">20%</option>
                     </select> */}
+                    {/*Box with porcentage, we implement Functions colorDec and deleteDec*/}
                     <h2><FaPlay className={`icon-arrow ${colorDec(price_change_percentage_30d_in_currency)}`}/>{deleteDec(price_change_percentage_30d_in_currency,2)}%</h2>
                 </div>
+
                 <div className="graphic">
+                    {/*Implement Graph Component */}
                     <Graph type={0} coin={id} currency={cur}/>
                 </div>
                 <div className="capitalization">
+                    {/*Capitalization Table*/}
                     <h2>Capitalización</h2>
                     <table className="capitalization-table">
                         <thead>
@@ -46,7 +51,8 @@ function CardPrincipal({ json: { id,
                         </thead>
                         <tbody>
                             <tr>
-                                 <td className={colorDec(price_change_percentage_1h_in_currency)}>{deleteDec(price_change_percentage_1h_in_currency, 2)}%</td>
+                                {/*Calling Function colorDec and deleteDec */}
+                                <td className={colorDec(price_change_percentage_1h_in_currency)}>{deleteDec(price_change_percentage_1h_in_currency, 2)}%</td>
                                 <td className={colorDec(price_change_percentage_24h_in_currency)}>{deleteDec(price_change_percentage_24h_in_currency, 2)}%</td>
                                 <td className={colorDec(price_change_percentage_7d_in_currency)}>{deleteDec(price_change_percentage_7d_in_currency, 2)}%</td>
                                 <td className={colorDec(price_change_percentage_30d_in_currency)}>{deleteDec(price_change_percentage_30d_in_currency, 2)}%</td>

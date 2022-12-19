@@ -2,6 +2,7 @@ import "./Card.css"
 import Graph from "./Graph"
 import {colorDec} from './App'
 
+//We create a card that same way cardPrincipal
 export default function Card({coinId, cur, porcentaje, price, img}){
     return (
         <div className="card">

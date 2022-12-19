@@ -3,7 +3,7 @@
     grid: 1fr / 100px 1fr;
     place-items: center;
     gap: 10px;
-    background-color: #02735E;
+    background-color: #1b004b;
     height: 100%;
     width: 100%;
     border-radius: 20px;
@@ -59,4 +59,30 @@
     height: 50px;
     margin-top: 25px;
     margin-left: 10px;
+}
+@media (min-width: 320px) and (max-width: 480px){
+
+    .con-main .graph{
+        width: 80%;
+        height: 60%;
+        place-self: end center ;
+        background: white;
+        border-radius: 5px;
+        margin: 0;
+    }
+    .img{
+        background-size: cover;
+        background-repeat: none;
+        background-position: center;
+        border-radius: 100%;
+        width: 20px;
+        height: 20px;
+        margin-top: 25px;
+        margin-left: 10px;
+    }
+    .con-title h2{
+        align-self: center;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+    }
 }

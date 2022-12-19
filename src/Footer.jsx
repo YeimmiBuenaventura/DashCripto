@@ -8,6 +8,8 @@ import LogoJesus from './img/LogoJesus.svg';
 import LogoNicolas from './img/LogoNicolas.svg';
 import LogoDruck from './img/LogoDruck.jpeg';
 
+/*This component have different info of contact, blogs etc.*/
+
 const Footer = () => {
     return (
         <div className="Footer">

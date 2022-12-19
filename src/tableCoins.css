@@ -6,3 +6,11 @@
 tr{
     text-align: center;
 }
+@media (min-width: 320px) and (max-width: 480px) {
+    .table_coins{
+        width: auto;
+        padding: 5px 5px 5px;
+        overflow-x:scroll;
+        display: block;
+    }
+}
