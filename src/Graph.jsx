@@ -68,11 +68,10 @@ export default function Graph({type = 1, coin = "bitcoin", currency = "usd", day
         getData()
         const canvas = chartRef.current.firstChild
         let BGgradient = canvas.getContext("2d").createLinearGradient(0, 0, 0, canvas.height);
-        BGgradient.addColorStop(0, 'rgba(4, 191, 157, 1)');   
-        BGgradient.addColorStop(1, 'rgba(4, 191, 157, 0)')
+        BGgradient.addColorStop(0, 'rgba(78, 47, 64)');   
+        BGgradient.addColorStop(1, 'rgba(122, 88, 106)')
         setGradient(BGgradient)
     },[])
-    
     
     /*Implement a switch that have features for the graphs*/
     switch(type){
